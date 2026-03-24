@@ -103,8 +103,8 @@ manim -i week01_basics/day01_shapes/main.py ShapesDemo
 
 | 天次 | 主题 | 状态 | 笔记 |
 |------|------|------|------|
-| Day 01 | 基本几何图形 | ⬜ 待开始 | - |
-| Day 02 | 文字与 LaTeX | ⬜ 待开始 | - |
+| Day 01 | 基本几何图形 | ✅ 已完成 | [笔记](week01_basics/day01_shapes/README.md) |
+| Day 02 | 文字与 LaTeX | 🔄 进行中 | [笔记](week01_basics/day02_text/README.md) |
 | Day 03 | 颜色与渐变 | ⬜ 待开始 | - |
 | Day 04 | 变换与过渡 | ⬜ 待开始 | - |
 | Day 05 | 摄像机与场景 | ⬜ 待开始 | - |
