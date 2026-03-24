@@ -1,0 +1,41 @@
+# Python 字节码与缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# 分发与打包
+dist/
+build/
+*.egg-info/
+
+# Manim 渲染输出（体积太大，不提交到 git）
+media/
+output/
+**/output/
+
+# macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# 环境变量
+.env
+.env.local
+
+# 日志
+*.log
+
+# 临时文件
+*.tmp
+*.temp
