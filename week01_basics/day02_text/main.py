@@ -2,13 +2,13 @@
 Day 02: 文字与 LaTeX
 学习目标：掌握 Manim 中的文字渲染，包括普通文字（Text）和
          数学公式（MathTex / Tex），并学会控制字体、大小、颜色、位置。
-运行方式：manim -pql main.py TextDemo
+运行方式：python main.py
 """
 
 from manim import *
 
 
-class TextDemo(Scene):
+class Day02TextDemo(Scene):
     """展示 Text、Tex、MathTex 三种文字类的用法和差异"""
 
     def construct(self):
@@ -46,15 +46,20 @@ class TextDemo(Scene):
         # 3. MathTex：LaTeX 数学公式渲染
         # ==========================================
 
-        # 欧拉公式：e^{iπ} + 1 = 0
-        euler = MathTex(r"e^{i\pi} + 1 = 0", font_size=60, color=GOLD)
-        euler.move_to(ORIGIN)
+        # 欧拉公式：e^{i\pi} + 1 = 0
+        euler = MathTex(
+            r"e^{i\pi} + 1 = 0", 
+            font_size=60, 
+            color=GOLD,
+            substrings_to_isolate=["e"]  # 告诉 Manim：把 "e" 单独拎出来
+        )
         self.play(Write(euler), run_time=2)
-        self.wait(1)
+        self.wait(0.5)
+
 
         # 为公式的各个部分单独上色
         # MathTex 可以通过索引访问各部分
-        self.play(euler.animate.set_color_by_tex("e", RED))
+        self.play(euler.animate.set_color_by_tex("e", WHITE))
         self.wait(0.5)
 
         self.play(FadeOut(euler))
@@ -97,14 +102,15 @@ class TextDemo(Scene):
         self.play(FadeOut(multiline))
 
         # 从左边的表达式变换到右边的
-        expr1 = MathTex(r"x^2 + 2x + 1", font_size=52)
-        expr2 = MathTex(r"(x + 1)^2", font_size=52)
+        # 通过将公式拆分为多个字符串，TransformMatchingTex 能更精准地匹配组件
+        expr1 = MathTex("x", "^2", "+", "2", "x", "+", "1", font_size=64)
+        expr2 = MathTex("(", "x", "+", "1", ")", "^2", font_size=64)
 
         label = Text("因式分解", font_size=28, color=GRAY).next_to(expr1, UP)
         self.play(Write(expr1), FadeIn(label))
         self.wait(0.8)
 
-        # TransformMatchingTex 会尝试匹配相同的 LaTeX 符号并做平滑变换
+        # 现在你会看到：x、+、1、^2 这些字符会平滑地“飞向”新位置！
         self.play(
             TransformMatchingTex(expr1, expr2),
             label.animate.set_opacity(0)
@@ -122,8 +128,14 @@ class TextDemo(Scene):
 
 
 # ==================================================
-# 渲染命令：
-#   conda activate manim-study
-#   manim -pql main.py TextDemo    （低质量预览）
-#   manim -pqh main.py TextDemo    （高质量输出）
+# 渲染说明：
+#   直接运行 python main.py 即可实现与 
+#   manim -pql main.py TextDemo 一致的效果
 # ==================================================
+
+if __name__ == "__main__":
+    # 使用低质量预览模式 (等同于命令行 -pql)
+    # 增加 input_file=__file__ 确保输出路径带上脚本名目录
+    with tempconfig({"quality": "low_quality", "preview": True, "input_file": __file__}):
+        scene = Day02TextDemo()
+        scene.render()

@@ -2,13 +2,13 @@
 Day 01: 基本几何图形
 学习目标：掌握 Manim 最基础的图形对象（Circle、Square、Triangle），
          学会将它们添加到场景中并制作简单的动画效果。
-运行方式：manim -pql main.py ShapesDemo
+运行方式：python main.py
 """
 
 from manim import *
 
 
-class ShapesDemo(Scene):
+class Day01ShapesDemo(Scene):
     """展示基本几何图形：圆形、正方形、三角形的创建与动画"""
 
     def construct(self):
@@ -76,9 +76,13 @@ class ShapesDemo(Scene):
 
 
 # ==================================================
-# 提示：直接运行此文件不会启动渲染
-# 请在终端使用以下命令渲染：
-#   conda activate manim-study
-#   manim -pql main.py ShapesDemo   （低质量预览）
-#   manim -pqh main.py ShapesDemo   （高质量输出）
+# 渲染说明：
+#   直接运行 python main.py 即可实现与 
+#   manim -pql main.py ShapesDemo 一致的效果
 # ==================================================
+
+if __name__ == "__main__":
+    # 使用低质量预览模式 (等同于命令行 -pql)
+    with tempconfig({"quality": "low_quality", "preview": True, "input_file": __file__}):
+        scene = Day01ShapesDemo()
+        scene.render()

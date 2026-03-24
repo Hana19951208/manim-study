@@ -15,7 +15,10 @@
 
 - **所有注释使用中文**，确保详细、通俗易懂
 - 每个示例文件必须包含 `if __name__ == "__main__"` 的渲染提示注释
-- 场景类名使用英文 PascalCase，文件名使用小写下划线
+- 场景类名使用英文 PascalCase，且必须包含日期前缀以便识别视频内容：
+  - 示例文件格式：`Day{NN}{Theme}Demo`（例：`Day01ShapesDemo`）
+  - 练习题格式：`Day{NN}Exercise{N}`（例：`Day02Exercise1`）
+- 文件名保持使用小写下划线格式（例：`main.py`, `exercise.py`）
 - 每个 `day{{N}}` 文件夹内固定结构：
 
 ```
@@ -35,26 +38,11 @@ conda activate manim-study && manim -pql <文件> <场景名>
 manim -pqh <文件> <场景名>
 ```
 
-### 3. 文件模板
-
-每个 `main.py` 都应遵循以下模板：
-
-```python
-"""
-Day XX: <主题名称>
-学习目标：<具体目标描述>
-运行方式：manim -pql main.py <场景类名>
-"""
-
-from manim import *
-
-
-class <场景类名>(Scene):
-    """<场景说明>"""
-    
-    def construct(self):
-        # 构建动画逻辑
-        pass
+if __name__ == "__main__":
+    # 使用低质量预览模式 (等同于命令行 -pql)
+    with tempconfig({"quality": "low_quality", "preview": True, "input_file": __file__}):
+        scene = <场景类名>()
+        scene.render()
 ```
 
 ### 4. 进度更新规则
@@ -107,6 +95,15 @@ manim -pql week01_basics/day01_shapes/main.py ShapesDemo
 2. **不要**修改 `.gitignore` 中的排除规则
 3. **不要**在 `assets/` 之外存储大型媒体文件
 4. **不要**跳过当天的 `README.md` 笔记更新
+
+---
+
+## ⚡ 快捷指令 (Slash Commands)
+
+| 指令 | 用途 |
+|------|------|
+| `/next-day` | 完成当天学习，标记进度并生成下一天任务 |
+| `/quiz` | 根据当前学习内容，生成配套练习题与参考答案 |
 
 ---
 

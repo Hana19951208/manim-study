@@ -5,7 +5,9 @@
 ## 📖 官方文档
 
 - [Manim Community 官方文档](https://docs.manim.community/)
+- [Manim 中文文档 (整理版)](https://manim.org.cn/) 🌟
 - [Manim Community GitHub](https://github.com/ManimCommunity/manim)
+- [ManimKindergarten GitHub](https://github.com/ManimKindergarten) (国内活跃社区)
 - [Manim 示例库](https://docs.manim.community/en/stable/examples.html)
 - [Manim API 参考](https://docs.manim.community/en/stable/reference.html)
 
@@ -16,7 +18,9 @@
 - [Theorem of Beethoven - Manim 教程系列](https://www.youtube.com/c/TheoremofBeethoven)
 - [Reducible - 使用 Manim 的 CS 可视化](https://www.youtube.com/c/Reducible)
 - [3Blue1Brown - 原始创作者频道](https://www.youtube.com/3blue1brown)
-- [Manim Tutorial (English)](https://www.youtube.com/playlist?list=PLWOlLjdyZm2NQD1YZmEPB0dwbd0yKINAT)
+- [B站：鹤翔万里 - 高质量进阶教程](https://space.bilibili.com/2627916) 🌟
+- [B站：凡凡之辈 - 适合小白起步](https://space.bilibili.com/29342730)
+- [B站：1024K - 数学动画实战](https://space.bilibili.com/39313410)
 
 ---
 
@@ -41,3 +45,4 @@
 - [Color Hunt](https://colorhunt.co/) - 配色方案
 - [Coolors](https://coolors.co/) - 颜色生成器
 - [Google Fonts](https://fonts.google.com/) - 字体参考
+- [wang_yb 的博客园 - Manim 专题教程](https://www.cnblogs.com/wang_yb/category/1769848.html) 🌟

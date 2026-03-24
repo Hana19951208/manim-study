@@ -2,11 +2,11 @@
 
 ## 📚 今日学习目标
 
-- [ ] 掌握 `Text` 类——渲染普通文字（支持中文，不依赖 LaTeX）
-- [ ] 掌握 `MathTex` 类——渲染 LaTeX 数学公式
-- [ ] 了解 `Tex` 和 `MathTex` 的区别
-- [ ] 学会文字颜色分段（`t2c` 参数）
-- [ ] 使用 `TransformMatchingTex` 制作公式推导动画
+- [x] 掌握 `Text` 类——渲染普通文字（支持中文，不依赖 LaTeX）
+- [x] 掌握 `MathTex` 类——渲染 LaTeX 数学公式
+- [x] 了解 `Tex` 和 `MathTex` 的区别
+- [x] 学会文字颜色分段（`t2c` 参数）
+- [x] 使用 `TransformMatchingTex` 制作公式推导动画
 
 ---
 
@@ -67,10 +67,12 @@ manim -pql main.py TextDemo
 
 ## 📝 完成情况
 
-- [ ] 成功渲染 TextDemo 场景
-- [ ] 理解 Text 与 MathTex 的使用场景
-- [ ] 独立编写一个数学公式动画
+- [x] 成功渲染 TextDemo 场景
+- [x] 理解 Text 与 MathTex 的使用场景
+- [x] 独立编写一个数学公式动画
 
 ---
 
-*学习时间：待补充*
+*学习时间：2026-03-24 ~ 2026-03-25*
+
+**今日总结**：今天解决了环境中的 LaTeX 路径问题，学会了如何通过 `substrings_to_isolate` 隔离公式子对象，从而实现公式组件之间的平滑变换。

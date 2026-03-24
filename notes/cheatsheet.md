@@ -35,8 +35,11 @@ from manim import *
 |------|------|------|
 | `Text` | 普通文字 | `Text("Hello", font_size=48)` |
 | `Tex` | LaTeX（行内） | `Tex(r"$e^{i\pi}+1=0$")` |
-| `MathTex` | LaTeX 数学 | `MathTex(r"\sum_{n=1}^{\infty}")` |
+| `MathTex` | LaTeX 数学 | `MathTex(r"\sum", substrings_to_isolate=["x"])` |
 | `MarkupText` | Pango 标记文字 | `MarkupText("<b>Bold</b>")` |
+
+> [!TIP]
+> 使用 `substrings_to_isolate` 可以让 MathTex 识别子对象，从而支持 `set_color_by_tex` 和平滑变换。
 
 ---
 
@@ -66,6 +69,7 @@ GOLD, MAROON, TEAL, LIGHT_BROWN, DARK_BROWN
 | `FadeOut(mob)` | 淡出 |
 | `Transform(mob1, mob2)` | 形状变换 |
 | `ReplacementTransform(m1, m2)` | 替换变换（m1 变成 m2） |
+| `TransformMatchingTex(m1, m2)` | 智能公式变换（自动匹配相同 LaTeX） |
 | `GrowFromCenter(mob)` | 从中心长出 |
 | `DrawBorderThenFill(mob)` | 先画边框再填色 |
 | `Rotate(mob, angle)` | 旋转 |
