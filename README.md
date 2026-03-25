@@ -17,6 +17,9 @@ manim-study/
 ├── AGENTS.md               # AI 助理协作规范
 ├── .env                    # 环境变量（可选）
 ├── requirements.txt        # Python 依赖
+├── utils/                  # 工具函数与场景模板
+│   ├── __init__.py
+│   └── templates.py        # StudyScene 基础场景类
 │
 ├── week01_basics/          # 第1周：基础图形与动画
 │   ├── day01_shapes/       # 基本几何图形
@@ -105,7 +108,7 @@ manim -i week01_basics/day01_shapes/main.py ShapesDemo
 |------|------|------|------|
 | Day 01 | 基本几何图形 | ✅ 已完成 | [笔记](week01_basics/day01_shapes/README.md) |
 | Day 02 | 文字与 LaTeX | ✅ 已完成 | [笔记](week01_basics/day02_text/README.md) |
-| Day 03 | 颜色与渐变 | 🔄 进行中 | [笔记](week01_basics/day03_color/README.md) |
+| Day 03 | 颜色与渐变 | ✅ 已完成 | [笔记](week01_basics/day03_color/README.md) |
 | Day 04 | 变换与过渡 | ⬜ 待开始 | - |
 | Day 05 | 摄像机与场景 | ⬜ 待开始 | - |
 | Day 06 | 对象分组 | ⬜ 待开始 | - |

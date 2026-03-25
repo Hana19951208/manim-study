@@ -5,13 +5,33 @@ Day 01: 基本几何图形
 运行方式：python main.py
 """
 
+import sys
+import os
+
+# 将项目根目录添加到 python 搜索路径
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+
 from manim import *
+from utils.templates import StudyScene
 
 
-class Day01ShapesDemo(Scene):
+class Day01ShapesDemo(StudyScene):
     """展示基本几何图形：圆形、正方形、三角形的创建与动画"""
 
     def construct(self):
+        # ==========================================
+        # 0. 欢迎语与通用标识（由模板 StudyScene 提供）
+        # ==========================================
+        self.play_welcome()
+
+        # ==========================================
+        # 1. 显示标题文字
+        # ==========================================
+        title = Text("Day 01: 基本图形", font_size=48, color=YELLOW)
+        self.play(Write(title))
+        self.wait(1)
+        self.play(title.animate.to_edge(UP))
+
         # ==========================================
         # 1. 创建基本图形对象
         # ==========================================
@@ -61,6 +81,7 @@ class Day01ShapesDemo(Scene):
         # 5. 让图形移出屏幕（FadeOut）
         # ==========================================
         self.play(
+            FadeOut(title),
             FadeOut(circle),
             FadeOut(square),
             FadeOut(triangle),
@@ -68,11 +89,9 @@ class Day01ShapesDemo(Scene):
         )
 
         # ==========================================
-        # 6. 显示标题文字
+        # 6. 结尾（使用模板方法）
         # ==========================================
-        title = Text("Day 01: 基本图形", font_size=48, color=YELLOW)
-        self.play(Write(title))
-        self.wait(2)
+        self.play_finish("Day 01")
 
 
 # ==================================================
@@ -83,6 +102,6 @@ class Day01ShapesDemo(Scene):
 
 if __name__ == "__main__":
     # 使用低质量预览模式 (等同于命令行 -pql)
-    with tempconfig({"quality": "low_quality", "preview": True, "input_file": __file__}):
+    with tempconfig({"quality": "high_quality", "preview": True, "input_file": __file__}):
         scene = Day01ShapesDemo()
         scene.render()

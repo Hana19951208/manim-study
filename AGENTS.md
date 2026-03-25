@@ -18,6 +18,8 @@
 - 场景类名使用英文 PascalCase，且必须包含日期前缀以便识别视频内容：
   - 示例文件格式：`Day{NN}{Theme}Demo`（例：`Day01ShapesDemo`）
   - 练习题格式：`Day{NN}Exercise{N}`（例：`Day02Exercise1`）
+- **模板使用**：优先继承 `utils.templates.StudyScene` 以使用统一的欢迎语和结尾动画。可以通过 `show_header` 和 `show_footer` 控制显示。
+- **文档优先级**：在编写示例或生成练习之前，必须优先参考 `.agents/skills/manim/SKILL.md` 及其配套文档，严禁使用已废弃的方法（如 `set_color_gradient` 应根据对象类型选择 `set_color_by_gradient` 或集合方案）。
 - 文件名保持使用小写下划线格式（例：`main.py`, `exercise.py`）
 - 每个 `day{{N}}` 文件夹内固定结构：
 
@@ -68,6 +70,7 @@ week{NN}_{主题}/day{NN}_{英文主题}/
 | `README.md` | 项目总览与进度跟踪 |
 | `AGENTS.md` | 本文件，AI 协作规范 |
 | `requirements.txt` | Python 依赖声明 |
+| `utils/templates.py` | 通用场景模板 (StudyScene) |
 | `notes/cheatsheet.md` | Manim API 快速手册 |
 | `notes/troubleshooting.md` | 常见错误与解决方案 |
 | `notes/resources.md` | 学习资源汇总 |

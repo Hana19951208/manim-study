@@ -41,7 +41,21 @@ python week01_basics/day03_color/main.py
 
 ## 📝 完成情况
 
-- [ ] 成功运行 Day03ColorDemo
-- [ ] 学会自定义 Hex 颜色
-- [ ] 掌握了多色渐变技巧
-- [ ] 完成课后练习
+- [x] 成功运行 Day03ColorDemo
+- [x] 学会自定义 Hex 颜色
+- [x] 掌握了多色渐变技巧
+- [x] 完成课后练习 ([查看题目](exercise.py) | [参考答案](solution.py))
+
+---
+
+## 🛠️ 预览练习
+```bash
+conda activate manim-study
+# 预览练习模板
+manim -pql week01_basics/day03_color/exercise.py Day03Exercise1
+
+# 预览参考答案
+manim -pql week01_basics/day03_color/solution.py Day03Solution1
+manim -pql week01_basics/day03_color/solution.py Day03Solution2
+manim -pql week01_basics/day03_color/solution.py Day03Solution3
+```

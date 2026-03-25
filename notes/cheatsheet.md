@@ -123,6 +123,36 @@ self.set_camera_orientation(phi=75*DEGREES, theta=-45*DEGREES)
 
 ---
 
+## 🛠 项目基础模板 (Project Templates)
+
+针对本项目封装的 `StudyScene` 通用基类，位于 `utils/templates.py`。
+
+### 1. 继承与导入
+```python
+from utils.templates import StudyScene
+
+class MyScene(StudyScene):
+    # show_header = True  # 开场欢迎语开关
+    # show_footer = True  # 结尾完成说明开关
+    
+    def construct(self):
+        # 0. 标准开场
+        self.play_welcome()
+        
+        # ... 业务逻辑 ...
+        
+        # 1. 标准结尾
+        self.play_finish("Day XX")
+```
+
+### 2. 常用模板方法
+| 方法 | 参数 | 说明 |
+|------|------|------|
+| `play_welcome()` | 无 | 写入欢迎语，显示并常驻 GitHub 学习地址 |
+| `play_finish()` | `day_label` | 清理全场，显示 "✓ Day XX 完成！" 提示 |
+
+---
+
 ## 📐 方向常量
 
 ```python

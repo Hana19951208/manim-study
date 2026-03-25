@@ -5,13 +5,31 @@ Day 02: 文字与 LaTeX
 运行方式：python main.py
 """
 
+import sys
+import os
+
+# 将项目根目录添加到 python 搜索路径（针对直接运行脚本的情况）
+# week01_basics / day02_text / main.py -> 所以要向上退两级到根目录
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+
 from manim import *
+from utils.templates import StudyScene
 
 
-class Day02TextDemo(Scene):
+class Day02TextDemo(StudyScene):
     """展示 Text、Tex、MathTex 三种文字类的用法和差异"""
 
+    # 继承自 StudyScene，可以通过以下参数控制模板显示
+    # show_header = True  # 设置为 False 可关闭欢迎语
+    # show_footer = True  # 设置为 False 可关闭结尾动画
+
     def construct(self):
+        # ==========================================
+        # 0. 欢迎语与通用标识（由模板 StudyScene 提供）
+        # ==========================================
+        self.play_welcome()
+
+
         # ==========================================
         # 1. Text：普通文字（不依赖 LaTeX，支持中文）
         # ==========================================
@@ -118,13 +136,9 @@ class Day02TextDemo(Scene):
         self.wait(1.5)
 
         # ==========================================
-        # 7. 结尾
+        # 7. 结尾（使用模板方法）
         # ==========================================
-        self.play(FadeOut(expr2), FadeOut(title))
-        end_text = Text("✓ Day 02 完成！", font_size=44, color=GREEN)
-        self.play(Write(end_text))
-        self.wait(2)
-        self.play(FadeOut(end_text))
+        self.play_finish("Day 02")
 
 
 # ==================================================

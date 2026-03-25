@@ -5,7 +5,7 @@
 ## 📖 官方文档
 
 - [Manim Community 官方文档](https://docs.manim.community/)
-- [Manim 中文文档 (整理版)](https://manim.org.cn/) 🌟
+- [Manim 中文文档 (整理版)](https://docs.manim.org.cn/) 🌟
 - [Manim Community GitHub](https://github.com/ManimCommunity/manim)
 - [ManimKindergarten GitHub](https://github.com/ManimKindergarten) (国内活跃社区)
 - [Manim 示例库](https://docs.manim.community/en/stable/examples.html)
