@@ -21,21 +21,48 @@ class StudyScene(Scene):
         if not self.show_header:
             return
             
-        # 1. 欢迎标题
+        # 0. 欢迎标题
         welcome = Text(self.welcome_text, font_size=42, color=YELLOW, weight=BOLD)
         self.play(Write(welcome))
         self.wait(0.8)
         self.play(FadeOut(welcome))
 
-        # 2. Github 地址
-        github = Text(f"github学习地址: {self.github_url}", font_size=24, color=GRAY)
-        self.play(Write(github))
-        self.wait(0.8)
+        # 1. 统一创建所有元素（语义化命名，避免重名）
+        logo = SVGMobject("assets/svg/github.svg", height=1, width=1) \
+            .set_fill(color=GRAY_B) \
+            .scale(1.5)
         
-        # 将 Github 地址缩小并移动到左上角，作为常驻标识（可选）
-        self.play(github.animate.scale(0.5).to_corner(UL, buff=0.1), run_time=1)
-        self.github_mobject = github
-        self.add(self.github_mobject) # 确保它留在场景中
+        main_text = Text("创意无限，代码即艺术!!", font_size=40, color=GRAY_B)
+        github_text = Text(f"{self.github_url}", font_size=24, color=GRAY)
+
+        # 2. 精准排版（指定对齐方向，杜绝位置偏移）
+        main_text.next_to(logo, RIGHT, buff=0.3)  # 文字在logo右侧
+        main_text.align_to(logo, VCenter)         # 与logo垂直居中对齐
+
+        github_text.next_to(logo, DOWN, buff=0.3) # 链接在logo正下方
+        github_text.align_to(logo, CENTER)        # 与整体水平居中对齐
+
+        # 3. 一次性组合所有元素 + 整体居中（仅居中1次，无冗余）
+        self.github_mobject = VGroup(logo, main_text, github_text)
+        self.github_mobject.center()  # 最终整体居中，一步到位
+
+        # 4. 同步播放所有入场动画
+        self.play(
+            DrawBorderThenFill(logo),
+            Write(main_text),
+            Write(github_text),
+            run_time=1.2
+        )
+        self.wait(1)
+
+        # 5. 整体移动缩放（保持组合完整性）
+        self.play(
+            self.github_mobject.animate
+                .scale(0.3)
+                .to_corner(UL, buff=0.1),
+            run_time=1
+        )
+        self.wait(1)
 
     def play_finish(self, day_label="Day XX"):
         """
@@ -53,5 +80,5 @@ class StudyScene(Scene):
         # 显示完成文字
         end_text = Text(f"✓ {day_label} 完成！", font_size=44, color=GREEN)
         self.play(Write(end_text))
-        self.wait(2)
+        self.wait(0.8)
         self.play(FadeOut(end_text))

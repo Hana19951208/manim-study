@@ -39,3 +39,6 @@ output/
 # 临时文件
 *.tmp
 *.temp
+
+# 本地创作与练习
+playground.py
