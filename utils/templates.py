@@ -27,41 +27,34 @@ class StudyScene(Scene):
         self.wait(0.8)
         self.play(FadeOut(welcome))
 
-        # 1. 统一创建所有元素（语义化命名，避免重名）
-        logo = SVGMobject("assets/svg/github.svg", height=1, width=1) \
-            .set_fill(color=GRAY_B) \
-            .scale(1.5)
-        
-        main_text = Text("创意无限，代码即艺术!!", font_size=40, color=GRAY_B)
-        github_text = Text(f"{self.github_url}", font_size=24, color=GRAY)
+        # 1. 统一创建所有元素
+        logo = SVGMobject("assets/svg/github.svg", height=1.2).set_fill(color=GRAY_B)
+        text = Text("创意无限，代码即艺术!!", font_size=40, color=GRAY_B)
+        github = Text(self.github_url, font_size=24, color=GRAY)
 
-        # 2. 精准排版（指定对齐方向，杜绝位置偏移）
-        main_text.next_to(logo, RIGHT, buff=0.3)  # 文字在logo右侧
-        main_text.align_to(logo, VCenter)         # 与logo垂直居中对齐
+        # 2. 语义化排版：使用 arrange 自动对齐
+        # 先将 logo 和主文字水平排列，buff 指定间距
+        header = VGroup(logo, text).arrange(RIGHT, buff=0.4)
+        # 将头部与 github 链接垂直排列（arrange 会自动处理水平居中）
+        self.github_mobject = VGroup(header, github).arrange(DOWN, buff=0.3)
+        # 整体居中显示
+        self.github_mobject.center()
 
-        github_text.next_to(logo, DOWN, buff=0.3) # 链接在logo正下方
-        github_text.align_to(logo, CENTER)        # 与整体水平居中对齐
-
-        # 3. 一次性组合所有元素 + 整体居中（仅居中1次，无冗余）
-        self.github_mobject = VGroup(logo, main_text, github_text)
-        self.github_mobject.center()  # 最终整体居中，一步到位
-
-        # 4. 同步播放所有入场动画
+        # 3. 同步绘制动画
         self.play(
             DrawBorderThenFill(logo),
-            Write(main_text),
-            Write(github_text),
+            Write(text),
+            Write(github),
             run_time=1.2
         )
         self.wait(1)
 
-        # 5. 整体移动缩放（保持组合完整性）
+        # 4. 整体缩放平移至左上角
         self.play(
-            self.github_mobject.animate
-                .scale(0.3)
-                .to_corner(UL, buff=0.1),
+            self.github_mobject.animate.scale(0.3).to_corner(UL, buff=0.1),
             run_time=1
         )
+        self.add(self.github_mobject) # 确保作为常驻标识
         self.wait(1)
 
     def play_finish(self, day_label="Day XX"):

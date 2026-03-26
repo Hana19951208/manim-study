@@ -109,7 +109,7 @@ manim -i week01_basics/day01_shapes/main.py ShapesDemo
 | Day 01 | 基本几何图形 | ✅ 已完成 | [笔记](week01_basics/day01_shapes/README.md) |
 | Day 02 | 文字与 LaTeX | ✅ 已完成 | [笔记](week01_basics/day02_text/README.md) |
 | Day 03 | 颜色与渐变 | ✅ 已完成 | [笔记](week01_basics/day03_color/README.md) |
-| Day 04 | 变换与过渡 | ⬜ 待开始 | - |
+| Day 04 | 变换与过渡 | 🔄 进行中 | [笔记](week01_basics/day04_transform/README.md) |
 | Day 05 | 摄像机与场景 | ⬜ 待开始 | - |
 | Day 06 | 对象分组 | ⬜ 待开始 | - |
 | Day 07 | 第1周综合 | ⬜ 待开始 | - |
