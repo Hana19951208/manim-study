@@ -49,14 +49,30 @@ python week01_basics/day04_transform/main.py
 
 ---
 
+## 🐞 避坑指南 (Troubleshooting)
+
+### 1. Transform 与 Rotate 的“抢地盘”冲突
+**现象**：在同一个 `self.play()` 中对同一个物体同时执行 `Transform` 和 `Rotate`，结果只能看到旋转，看不到形状变态。
+**原因**：Manim 中两个动画都在尝试修改物体的底层点坐标（points），后一个动画往往会覆盖前一个。
+**解决方案（嵌套容器法）**：
+- 将物体放入一个 `VGroup` 容器。
+- 让内部物体执行 `Transform`。
+- 让外部容器执行 `Rotate`。
+- 这样两个动画操作的是不同层级的坐标数据，互不干扰。
+
+### 2. UpdateFromAlphaFunc 报错
+**现象**：`TypeError: Mobject.interpolate() missing 1 required positional argument: 'alpha'`
+**原因**：Manim 的 `interpolate` 方法需要三个参数：`start_mobject`, `end_mobject`, `alpha`。
+**经验**：在自定义动画函数时，务必确保 `interpolate` 的参数完整，且注意两个物体间的子对象（submobjects）数量是否对齐。
+
+---
+
 ## 🛠️ 预览练习
 ```bash
 conda activate manim-study
 # 预览练习模板
-manim -pql week01_basics/day04_transform/exercise.py Day04Exercise1
+manim -pql week01_basics/day04_transform/exercise.py Day04Exercise5 --flush_cache
 
 # 预览参考答案
-manim -pql week01_basics/day04_transform/solution.py Day03Solution1
-manim -pql week01_basics/day04_transform/solution.py Day03Solution2
-manim -pql week01_basics/day04_transform/solution.py Day03Solution3
+manim -pql week01_basics/day04_transform/solution.py Day04Solution4
 ```
