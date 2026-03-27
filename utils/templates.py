@@ -75,3 +75,19 @@ class StudyScene(Scene):
         self.play(Write(end_text))
         self.wait(0.8)
         self.play(FadeOut(end_text))
+
+class MovingCameraStudyScene(MovingCameraScene, StudyScene):
+    """
+    支持摄像机移动的基础场景类，继承自 MovingCameraScene 和 StudyScene。
+    """
+    def setup(self):
+        MovingCameraScene.setup(self)
+        StudyScene.setup(self)
+
+class ThreeDStudyScene(ThreeDScene, StudyScene):
+    """
+    支持 3D 视角的基础场景类，继承自 ThreeDScene 和 StudyScene。
+    """
+    def setup(self):
+        ThreeDScene.setup(self)
+        StudyScene.setup(self)

@@ -10,6 +10,8 @@
 | 基础形状 | `Circle`, `Square`, `Triangle`, `Rectangle` | [Day 01: 基础形状](../week01_basics/day01_shapes/README.md) |
 | 文本处理 | `Text`, `MathTex`, `Tex` | [Day 02: 文字与公式](../week01_basics/day02_text/README.md) |
 | 颜色/样式 | `set_color`, `set_fill`, `set_stroke` | [Day 03: 颜色与样式](../week01_basics/day03_color/README.md) |
+| 摄像机控制 | `MovingCameraScene`, `frame.animate` | [Day 05: 摄像机与场景](../week01_basics/day05_camera/README.md) |
+| 对象分组 | `VGroup`, `Group` | [Day 06: 对象分组](../week01_basics/day06_group/README.md) |
 
 ---
 
@@ -25,8 +27,8 @@
 ## 🎯 排版与对齐 (Layout)
 | 功能 | 方法 | 说明 |
 |------|---------|---------|
-| 线性排版 | `group.arrange(RIGHT, buff=0.5)` | 自动沿方向排列 [详见 Day 02](../week01_basics/day02_text/README.md) |
-| 网格排版 | `group.arrange_in_grid(rows=2, buff=1)` | 快速生成阵列 [详见 Day 04](../week01_basics/day04_transform/README.md) |
+| 线性排版 | `group.arrange(RIGHT, buff=0.5)` | 自动沿方向排列 [详见 Day 06](../week01_basics/day06_group/README.md) |
+| 网格排版 | `group.arrange_in_grid(rows=2)` | 快速生成阵列 [详见 Day 06](../week01_basics/day06_group/README.md) |
 | 相对对齐 | `obj.next_to(other, DOWN)` | 处理物体间间距 |
 
 ---

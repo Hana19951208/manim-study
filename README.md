@@ -110,8 +110,8 @@ manim -i week01_basics/day01_shapes/main.py ShapesDemo
 | Day 02 | 文字与 LaTeX | ✅ 已完成 | [笔记](week01_basics/day02_text/README.md) |
 | Day 03 | 颜色与渐变 | ✅ 已完成 | [笔记](week01_basics/day03_color/README.md) |
 | Day 04 | 变换与过渡 | ✅ 已完成 | [笔记](week01_basics/day04_transform/README.md) |
-| Day 05 | 摄像机与场景 | ⬜ 待开始 | - |
-| Day 06 | 对象分组 | ⬜ 待开始 | - |
+| Day 05 | 摄像机与场景 | ✅ 已完成 | [笔记](week01_basics/day05_camera/README.md) |
+| Day 06 | 对象分组 | ✅ 已完成 | [笔记](week01_basics/day06_group/README.md) |
 | Day 07 | 第1周综合 | ⬜ 待开始 | - |
 | Day 08 | 动画时序 | ⬜ 待开始 | - |
 | Day 09 | Updater | ⬜ 待开始 | - |

@@ -74,4 +74,18 @@ class My3DScene(ThreeDScene):  # 而不是 Scene
 
 ---
 
+### 问题：`self.camera.frame.add_updater()` 无效
+**现象**：在 `MovingCameraScene` 中设置了相机追踪，但运行 `wait()` 时画面静止。  
+**原因**：Manim 的更新机制仅遍历场景中的 `self.mobjects`。如果相机帧没有被 `add` 进去，它的 updater 不会被触发。  
+**解决**：
+```python
+self.add(self.camera.frame)  # 必须手工添加以激活 updater
+```
+
+### 问题：相机追踪物体时背景疯狂“呼吸式”缩放
+**原因**：在 updater 中同时使用了 `rotate()` 和 `set_width()`。旋转会导致物体外包框（AABB）大小改变。  
+**解决**：将 `set_width()` 移出 updater，或使用绝对高度/宽度设置。
+
+---
+
 *遇到新问题请在此处补充记录*
